@@ -19,7 +19,7 @@ and you must pass that as an input in the configuration file.
 e.g. <u10>^3.742. Here this variables is crudely called windu10_moment_3_742
 
 Import note 2: This parameterisation is only suitable at high wind speeds!
-This parameterisation does not pass through 0.
+Additionally this parameterisation does not pass through 0.
 Therefore it will give inaccurate results at low to medium wind speeds.
 If this parameterisation must be used, it should be used with extreme caution
 especially for wind speeds below 20 ms-1. 

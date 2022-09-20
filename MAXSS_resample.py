@@ -42,7 +42,7 @@ def process_slice(valData, errData, outputRes=0.25):
                 newGrid[ilat, ilon] = np.mean(valData[iCoordMeshes[ilat, ilon]]);
                 #newGridCount[ilat, ilon] = np.sum(countData[iCoordMeshes[ilat, ilon]]);
                 newGridCount[ilat, ilon] = len(iCoordMeshes[ilat, ilon][0]) * len(iCoordMeshes[ilat, ilon][0][0]);
-                newGridErr[ilat, ilon] = np.sqrt(np.sum(errData[iCoordMeshes[ilat, ilon]]**2));
+                newGridErr[ilat, ilon] = np.sqrt(np.sum(pow(errData[iCoordMeshes[ilat, ilon]],2)));
     
     newGridErr[newGridCount!=0] = newGridErr[newGridCount!=0] / newGridCount[newGridCount!=0];
     
@@ -163,11 +163,11 @@ if __name__ == "__main__":
                     
                     #### calculate wind speed from east and west components
                 wind_speed = np.empty((wind_time_dimension, wind_lat_dimension, wind_lon_dimension), dtype=np.float32);
-                wind_speed=((wind_eastward**2)+(wind_northward**2))**0.5
+                wind_speed=pow((pow(wind_eastward,2)+pow(wind_northward,2)),0.5)
                 
-                Wind_moment2=wind_speed**2
-                Wind_moment3=wind_speed**3
-                Wind_moment3point7=wind_speed**3.742
+                Wind_moment2=pow(wind_speed,2)
+                Wind_moment3=pow(wind_speed,3)
+                Wind_moment3point7=pow(wind_speed,3.742)
 
                     #### stop wind fields clogging up memory
                 del wind_eastward, wind_northward ,winds_nc
